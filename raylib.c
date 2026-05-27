@@ -13,22 +13,29 @@ int main (void) {
 	int yv = 20;
 	int scorel = 0;
 	int scorey = 0;
+	char score1[8];
+	char score2[8];
 	while (!WindowShouldClose()) {
+		sprintf(score1, "%d", scorel);
+		sprintf(score2, "%d", scorey);
+
 		if (IsKeyDown(KEY_DOWN) && player2 < 880) {
-			player2 += 10;}
+			player2 += 20;}
 
 		if (IsKeyDown(KEY_UP) && player2 > 0) {
-			player2 -= 10;}
-		if (IsKeyDown(KEY_S) && player2 < 880) {
-			player1 += 10;}
+			player2 -= 20;}
+		if (IsKeyDown(KEY_S) && player1 < 880) {
+			player1 += 20;}
 
-		if (IsKeyDown(KEY_W) && player2 > 0) {
-			player1 -= 10;}
+		if (IsKeyDown(KEY_W) && player1 > 0) {
+			player1 -= 20;}
 		ClearBackground(BLACK);
 		BeginDrawing();
 		DrawRectangle(1800,player2,20,200,RAYWHITE);
 		DrawRectangle(x,y,30,30,RAYWHITE);
 		DrawRectangle(180,player1,20,200,RAYWHITE);
+		DrawText(score2, 500, 180, 48, RAYWHITE);
+		DrawText(score1, 1420, 180, 48, RAYWHITE);
 		EndDrawing();
 		if (x<0) {
 			x = 960;
